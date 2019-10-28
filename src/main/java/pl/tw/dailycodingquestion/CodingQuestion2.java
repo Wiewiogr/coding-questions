@@ -16,7 +16,7 @@ public class CodingQuestion2 {
         System.out.println(merge(lists, 3));
     }
 
-    // nk + klog(k) = nklog(k)
+    // nk * log(k)(complexity of insertion) = nklog(k)
     public static List<Integer> merge(List<List<Integer>> lists, int n) {
         List<Integer> result = new ArrayList<>();
 
