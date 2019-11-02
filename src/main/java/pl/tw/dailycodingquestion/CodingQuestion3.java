@@ -1,5 +1,7 @@
 package pl.tw.dailycodingquestion;
 
+import pl.tw.TreeNode;
+
 /**
  * Given the root to a binary tree, implement serialize(root),
  * which serializes the tree into a string, and deserialize(s),
@@ -8,21 +10,21 @@ package pl.tw.dailycodingquestion;
 public class CodingQuestion3 {
 
     public static void main(String[] args) {
-        var root = new Node(
+        var root = new TreeNode(
                 1,
-                new Node(
+                new TreeNode(
                         2,
-                        new Node(
+                        new TreeNode(
                                 4,
                                 null,
                                 null
                         ),
                         null
                 ),
-                new Node(
+                new TreeNode(
                         3,
                         null,
-                        new Node(
+                        new TreeNode(
                                 7,
                                 null,
                                 null
@@ -33,13 +35,13 @@ public class CodingQuestion3 {
         System.out.println(deserializeTree(serializeTree(root)));
     }
 
-    public static int[] serializeTree(Node tree) {
+    public static int[] serializeTree(TreeNode tree) {
         int[] array = new int[100];
         serialize(tree, 0, array);
         return array;
     }
 
-    public static void serialize(Node node, int index, int[] array) {
+    public static void serialize(TreeNode node, int index, int[] array) {
         array[index] = node.val;
 
         if (node.left != null) {
@@ -51,43 +53,22 @@ public class CodingQuestion3 {
         }
     }
 
-    public static Node deserializeTree(int[] array) {
-        Node root = new Node();
+    public static TreeNode deserializeTree(int[] array) {
+        TreeNode root = new TreeNode();
         deserialize(root, 0, array);
         return root;
     }
 
-    public static Node deserialize(Node node, int index, int[] array) {
+    public static TreeNode deserialize(TreeNode node, int index, int[] array) {
         node.val = array[index];
 
         if (array[index * 2 + 1] != 0) {
-            node.left = deserialize(new Node(), index * 2 + 1, array);
+            node.left = deserialize(new TreeNode(), index * 2 + 1, array);
         }
 
         if (array[index * 2 + 2] != 0) {
-            node.right = deserialize(new Node(), index * 2 + 2, array);
+            node.right = deserialize(new TreeNode(), index * 2 + 2, array);
         }
         return node;
-    }
-
-    public static class Node {
-
-        public int val;
-        public Node left;
-        public Node right;
-
-        public Node() {
-        }
-
-        public Node(int val, Node left, Node right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-
-        @Override
-        public String toString() {
-            return "( " + left + " " + val + " " + right + " )";
-        }
     }
 }
