@@ -1,21 +1,13 @@
 package pl.tw.random.algorithms;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+
+import static pl.tw.random.algorithms.SortingUtils.createShuffledArray;
 
 public class HeapSort {
 
     public static void main(String[] args) {
-        List<Integer> collect = IntStream.range(1, 100).boxed().collect(Collectors.toList());
-        Collections.shuffle(collect);
-
-        int[] array = new int[100];
-        for (int i = 0; i < collect.size(); i++) {
-            array[i] = collect.get(i);
-        }
+        int[] array = createShuffledArray(100);
 
         System.out.println("before:");
         System.out.println(Arrays.toString(array));
