@@ -1,6 +1,6 @@
 package pl.tw.random;
 
-import pl.tw.TreeNode;
+import pl.tw.random.datastructures.TreeNode;
 
 import java.util.LinkedList;
 import java.util.Queue;

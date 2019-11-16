@@ -1,4 +1,4 @@
-package pl.tw;
+package pl.tw.random.datastructures;
 
 public class TreeNode {
 

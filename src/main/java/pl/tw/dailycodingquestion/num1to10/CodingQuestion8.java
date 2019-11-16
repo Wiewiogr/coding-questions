@@ -1,6 +1,6 @@
 package pl.tw.dailycodingquestion.num1to10;
 
-import pl.tw.TreeNode;
+import pl.tw.random.datastructures.TreeNode;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

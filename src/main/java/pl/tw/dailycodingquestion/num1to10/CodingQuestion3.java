@@ -1,6 +1,6 @@
 package pl.tw.dailycodingquestion.num1to10;
 
-import pl.tw.TreeNode;
+import pl.tw.random.datastructures.TreeNode;
 
 /**
  * Given the root to a binary tree, implement serialize(root),
