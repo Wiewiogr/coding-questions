@@ -1,4 +1,4 @@
-package pl.tw.dailycodingquestion;
+package pl.tw.dailycodingquestion.num1to10;
 
 import java.util.Arrays;
 

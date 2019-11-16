@@ -2,7 +2,7 @@ package pl.tw.random.algorithms;
 
 import java.util.Arrays;
 
-import static pl.tw.dailycodingquestion.CodingQuestion4.swap;
+import static pl.tw.dailycodingquestion.num1to10.CodingQuestion4.swap;
 import static pl.tw.random.algorithms.SortingUtils.createShuffledArray;
 
 public class BubbleSort {

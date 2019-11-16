@@ -1,4 +1,4 @@
-package pl.tw.dailycodingquestion;
+package pl.tw.dailycodingquestion.num11to20;
 
 /**
  * Suppose we represent our file system by a string in the following manner:

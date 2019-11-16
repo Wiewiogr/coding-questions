@@ -1,4 +1,4 @@
-package pl.tw.dailycodingquestion;
+package pl.tw.dailycodingquestion.num11to20;
 
 /**
  * A builder is looking to build a row of N houses that can be of K different colors.
@@ -7,7 +7,7 @@ package pl.tw.dailycodingquestion;
  * Given an N by K matrix where the nth row and kth column represents the cost to build the nth house with kth color,
  * return the minimum cost which achieves this goal.
  */
-public class CodingQuestion19NotOptimalButGeneric {
+public class CodingQuestion19Optimal {
 
     public static void main(String[] args) {
         System.out.println(
@@ -24,34 +24,31 @@ public class CodingQuestion19NotOptimalButGeneric {
     }
 
     public static int minCost(int[][] costs, int k) {
-        int n = costs.length;
-        int[][] cache = new int[n][];
+        int[] dp = new int[k];
 
-        for (int i = 0; i < n; i++) {
-            cache[i] = new int[k];
-        }
+        int min1 = 0, min2 = 0, prevMin1 = 0, prevMin2 = 0;
 
-        for (int i = 0; i < k; i++) {
-            cache[0][i] = costs[0][i];
-        }
+        for (int i = 0; i < costs.length; i++) {
+            prevMin1 = min1;
+            prevMin2 = min2;
+            min1 = Integer.MAX_VALUE;
+            min2 = Integer.MAX_VALUE;
 
-        for (int i = 1; i < n; i++) {
             for (int j = 0; j < k; j++) {
-                cache[i][j] = Integer.MAX_VALUE;
-                for (int m = 0; m < k; m++) {
-                    if (m != j) {
-                        cache[i][j] = Math.min(cache[i][j], cache[i - 1][m] + costs[i][j]);
-                    }
+                if (dp[j] != prevMin1 || prevMin1 == prevMin2) {
+                    dp[j] = prevMin1 + costs[i][j];
+                } else {
+                    dp[j] = prevMin2 + costs[i][j];
+                }
+
+                if (dp[j] <= min1) {
+                    min2 = min1;
+                    min1 = dp[j];
+                } else if (dp[j] < min2) {
+                    min2 = dp[j];
                 }
             }
         }
-
-        int minCost = Integer.MAX_VALUE;
-
-        for (int i = 0; i < k; i++) {
-            minCost = Math.min(cache[n - 1][i], minCost);
-        }
-
-        return minCost;
+        return min1;
     }
 }

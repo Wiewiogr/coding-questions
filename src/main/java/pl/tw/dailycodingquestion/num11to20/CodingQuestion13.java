@@ -1,4 +1,4 @@
-package pl.tw.dailycodingquestion;
+package pl.tw.dailycodingquestion.num11to20;
 
 import java.util.HashMap;
 
