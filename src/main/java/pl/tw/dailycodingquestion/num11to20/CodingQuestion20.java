@@ -1,6 +1,6 @@
 package pl.tw.dailycodingquestion.num11to20;
 
-import pl.tw.random.datastructures.LLNode;
+import pl.tw.random.datastructures.ListNode;
 
 /**
  * Given two singly linked lists that intersect at some point, find the intersecting node. The lists are non-cyclical.
@@ -14,28 +14,28 @@ import pl.tw.random.datastructures.LLNode;
 public class CodingQuestion20 {
 
     public static void main(String[] args) {
-        LLNode commonPart = new LLNode(8);
-        commonPart.next = new LLNode(10);
+        ListNode commonPart = new ListNode(8);
+        commonPart.next = new ListNode(10);
 
-        LLNode a = new LLNode(3);
-        a.next = new LLNode(7);
+        ListNode a = new ListNode(3);
+        a.next = new ListNode(7);
         a.next.next = commonPart;
 
-        LLNode b = new LLNode(99);
-        b.next = new LLNode(1);
+        ListNode b = new ListNode(99);
+        b.next = new ListNode(1);
         b.next.next = commonPart;
 
         System.out.println(intersectingNode(a, b));
     }
 
-    public static int intersectingNode(LLNode a, LLNode b) {
+    public static int intersectingNode(ListNode a, ListNode b) {
         int sizeA = computeLength(a);
         int sizeB = computeLength(b);
 
         int diff = Math.abs(sizeA - sizeB);
 
-        LLNode aPtr = a;
-        LLNode bPtr = b;
+        ListNode aPtr = a;
+        ListNode bPtr = b;
 
         if (sizeA > sizeB) {
             for (int i = 0; i < diff; i++) {
@@ -59,9 +59,9 @@ public class CodingQuestion20 {
         return -1;
     }
 
-    private static int computeLength(LLNode node) {
+    private static int computeLength(ListNode node) {
         int length = 0;
-        LLNode cur = node;
+        ListNode cur = node;
         while (cur.next != null) {
             cur = cur.next;
             length++;
